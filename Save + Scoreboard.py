@@ -1,6 +1,6 @@
-##Créateur de sauvegarde et Créateur de scoreboard de co.py clicker.
-##Ne fonctionne que en local.
-##Tâches restantes :
+## Créateur de sauvegarde et Créateur de scoreboard de co.py clicker.
+## Ne fonctionne que en local.
+## Tâches restantes :
 ##  -Ranger le scoreboard (du plus grand ou plus petit nombre de points).
 ##  -Faire un scoreboard réseau.
 ##  -Importer le scoreboard sur Tkinter.
@@ -8,6 +8,7 @@
 import os, sys, random
 global name
 global txtfilename
+scorescore = []
 scoreboard = []
 temp = []
 default_point_value = random.randint(0, 1000) #Temporaire pour tester le scoreboard, Sinon normalement 0
@@ -60,19 +61,27 @@ if scoretrue == "Y":
     dada = wuwu.split("\n")
     del(dada[0:2])
     geg = " ".join(dada)
-    temp=geg.split("Utilisateur : ")
-    del(temp[0])
-    temp.sort() #Trouver un moyen de ranger la liste
-    print(temp) #Donne le scoreboard
+    tempo=geg.split("Utilisateur : ")
+    del(tempo[0])
+    tempa = "\n".join(tempo)
+    temp = tempa.split(": ")
+    scorescore.append(temp)
     euh.close()
+  scoreprint = sorted(scorescore, key = lambda scorescore: scorescore[1], reverse=True)
+  print(" ")
+  print("Voici le Scoreboard!")
+  print(" ")
+  for z in range(len(scoreprint)):
+    tempopa = ": ".join(scoreprint[z])
+    print(tempopa)
+    
+  
     
 elif scoretrue == "N":
   print("ok, fin du programme")
 else:
   print(":(, fin du programme")
 
-#lol
-#kek
 
 
   
