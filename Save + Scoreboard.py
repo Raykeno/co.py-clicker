@@ -71,7 +71,7 @@ elif scoretrue == "N":
 else:
   print(":(, fin du programme")
 
-
+#lol
 
 
   
