@@ -4,14 +4,15 @@
 ##  -Ranger le scoreboard (du plus grand ou plus petit nombre de points).
 ##  -Faire un scoreboard réseau.
 ##  -Importer le scoreboard sur Tkinter.
-
+from tkinter import *
 import os, sys, random
 global name
 global txtfilename
-scorescore = []
 scoreboard = []
 temp = []
-default_point_value = random.randint(0, 1000) #Temporaire pour tester le scoreboard, Sinon normalement 0
+default_point_value = 0 #Temporaire pour tester le scoreboard, Sinon normalement 0
+default_outil = "Morceau de charbon"
+default_AM2 = "Vielle Imprimente"
 name = input("Quel est votre nom d'utilisateur ")
 txtfilename = "sauvegarde/ "+ name + ".txt"
 
@@ -19,14 +20,37 @@ def savecreation(): #Créateur de sauvegarde
   print("Création de la sauvegarde")
   f=open(txtfilename,"w")
   f.write("Sauvegarde co.py clicker !\n\n")
-  f.write("Utilisateur : ")
   f.write(name)
   f.write("\n")
-  f.write("Points : ")
   f.write(str(default_point_value))
+  f.write("\n")
+  f.write(str(default_outil))
+  f.write("\n")
+  f.write(str(default_AM2))
+  f.write("\n")
   f.close()
   print("Sauvegarde crée")
 
+def scoreboardcreator():
+  global scoreboardo
+  liste = os.listdir("sauvegarde")
+  scoreboardo = []
+  for j in range(len(liste)):
+    k = liste[j]
+    nom = k.split(".")
+    scoreboard.append(nom[0])
+  for l in range(len(liste)):
+    nomtxt = "sauvegarde/" +liste[l]
+    euh = open(nomtxt, 'r')
+    wuwu = euh.read()
+    dada = wuwu.split("\n")
+    del(dada[0:1], dada[-1])
+    del(dada[0])
+    scoreboardo += dada
+
+  
+
+  
 if os.access(txtfilename , os.W_OK) == True :
   print("Sauvegarde détecté")
   print("Vérification")
@@ -49,31 +73,7 @@ else:
 
 scoretrue = input("Voulez-vous voir le scoreboard?, N= non , Y=oui : ")
 if scoretrue == "Y":
-  liste = os.listdir("sauvegarde")
-  for j in range(len(liste)):
-    k = liste[j]
-    nom = k.split(".")
-    scoreboard.append(nom[0])
-  for l in range(len(liste)):
-    nomtxt = "sauvegarde/" +liste[l]
-    euh = open(nomtxt, 'r')
-    wuwu = euh.read()
-    dada = wuwu.split("\n")
-    del(dada[0:2])
-    geg = " ".join(dada)
-    tempo=geg.split("Utilisateur : ")
-    del(tempo[0])
-    tempa = "\n".join(tempo)
-    temp = tempa.split(": ")
-    scorescore.append(temp)
-    euh.close()
-  scoreprint = sorted(scorescore, key = lambda scorescore: scorescore[1], reverse=True)
-  print(" ")
-  print("Voici le Scoreboard!")
-  print(" ")
-  for z in range(len(scoreprint)):
-    tempopa = ": ".join(scoreprint[z])
-    print(tempopa)
+  scoreboardcreator()
     
   
     
@@ -83,6 +83,16 @@ else:
   print(":(, fin du programme")
 
 
-
+#Fenêtre scoreboard
+Name=Tk()
+Name.title("Scoreboard")
+Name.resizable(width=False,height=True)
+Name.geometry("350x950")
+Name.config(bg="lightgrey")
+label = Label(Name, text=scoreboardo, bg="lightgray")
+label.pack()
+bouton=Button(Name, text="Quitter le programme", command=Name.quit)
+bouton.pack()
+Name.mainloop()
   
   
