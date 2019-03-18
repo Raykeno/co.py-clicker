@@ -11,10 +11,11 @@ global txtfilename
 scoreboard = []
 temp = []
 default_point_value = 0 #Temporaire pour tester le scoreboard, Sinon normalement 0
-default_outil = "Morceau de charbon"
-default_AM2 = "Vielle Imprimente"
+default_outil = "Morceau de charbon" #Outil par défaut
+default_AM2 = "Vielle Imprimente" #Amelioration 2 par défaut
 name = input("Quel est votre nom d'utilisateur ")
 txtfilename = "sauvegarde/ "+ name + ".txt"
+
 
 def savecreation(): #Créateur de sauvegarde
   print("Création de la sauvegarde")
