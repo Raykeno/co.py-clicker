@@ -73,7 +73,7 @@ def fermer():
     pickle.dump(prix2,f)
     pickle.dump(AA,f)
     f.close()
-    fenetre.destroy()
+    sys.exit()
 
 
 
