@@ -1,0 +1,3 @@
+-am1 : 'Morceau de charbon','Plume et encre','Pinceau à l'encre de chine noir','crayon de papier','Vieux Stylo','Stylo','Double Stylo','Stylo à plume','Stylo à plume de luxe','Stylo connecté', 'Stylo temporel','Stylo dimensionnel', 
+-am2 : 'Vieux cours','vielle imprimante','assistant de correction', 'imprimante', 'ordinateur', 'robot correcteur V0.1', 'Assistant d'harvard', 'I.A correctrice' ,'Robot correcteur V1'
+-am3 : 'Vieux porte-bonheur' ,'Trèfle de 4 copies','fer à correction','Lunettes du correcteur,'Dictionnaire du savoir', 'Charme de Patercorrector (Dieu de la correction)','bénédiction du ministre de l'éducation'
